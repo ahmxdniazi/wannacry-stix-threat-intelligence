@@ -40,7 +40,7 @@ The bundle is fully compliant with STIX 2.1 and can be imported into tools like 
 
 ## 📊 STIX Graph Visualization
 
-![WannaCry STIX 2.1 Graph](images/wannacry-stix-graph.png)
+![WannaCry STIX 2.1 Graph](images/stix-viz-graph.png)
 
 The central node is the WannaCry malware object, connected to the Lazarus Group (threat-actor), EternalBlue vulnerability, multiple Indicators of Compromise, and mitigation actions.
 
