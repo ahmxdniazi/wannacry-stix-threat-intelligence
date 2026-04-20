@@ -1,0 +1,321 @@
+{
+  "type": "bundle",
+  "id": "bundle--fc07c1af-a7b9-4e6c-9123-7a2d3e4f5b6c",
+  "spec_version": "2.1",
+  "objects": [
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--d2916708-57b9-4a5d-b7f1-4c26d0b44d6e",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "Lazarus Group",
+      "description": "Lazarus Group is a North Korea-linked Advanced Persistent Threat (APT) group, also tracked as APT38 and Hidden Cobra. The group is believed to operate under the Reconnaissance General Bureau (RGB) of the DPRK. They are motivated by financial gain, espionage, and cyber disruption operations. Lazarus Group is responsible for the WannaCry ransomware attack in May 2017.",
+      "aliases": ["APT38", "Hidden Cobra", "ZINC", "Guardians of Peace"],
+      "threat_actor_types": ["nation-state"],
+      "roles": ["agent", "malware-author", "infrastructure-operator"],
+      "goals": ["Financial gain", "Espionage", "Political disruption"],
+      "sophistication": "advanced",
+      "resource_level": "government",
+      "primary_motivation": "ideology",
+      "secondary_motivations": ["personal-gain"],
+      "labels": ["apt", "nation-state", "north-korea", "lazarus-group"],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/groups/G0032/",
+          "external_id": "G0032"
+        },
+        {
+          "source_name": "us-cert",
+          "url": "https://www.cisa.gov/news-events/alerts/2017/05/12/indicators-associated-wannacry-ransomware",
+          "description": "US-CERT Alert TA17-132A"
+        }
+      ]
+    },
+    {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "WannaCry Ransomware",
+      "description": "WannaCry (also known as WannaCrypt, WanaCrypt0r 2.0, Wanna Decryptor) is a ransomware cryptoworm that surfaced on May 12, 2017. It targets computers running Microsoft Windows by encrypting data and demanding ransom payments in Bitcoin. It exploits the EternalBlue exploit in older versions of Microsoft Windows SMBv1. The malware installs DoublePulsar — a backdoor implant tool — which is then used to upload and execute the WannaCry ransomware package.",
+      "malware_types": ["ransomware", "worm"],
+      "is_family": false,
+      "aliases": ["WannaCrypt", "WanaCrypt0r", "Wanna Decryptor", "WCRY"],
+      "first_seen": "2017-05-12T00:00:00.000Z",
+      "last_seen": "2017-05-15T00:00:00.000Z",
+      "architecture_execution_envs": ["windows-x86-32", "windows-x86-64"],
+      "implementation_languages": ["c"],
+      "capabilities": [
+        "encrypts-files",
+        "exfiltrates-data",
+        "installs-other-components",
+        "self-replicates-extensively",
+        "communicates-with-c2"
+      ],
+      "labels": ["ransomware", "worm", "wannacry", "cryptoworm"],
+      "kill_chain_phases": [
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "delivery" },
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "exploitation" },
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "installation" },
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "actions-on-objectives" }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/software/S0366/",
+          "external_id": "S0366"
+        },
+        {
+          "source_name": "kaspersky",
+          "url": "https://securelist.com/wannacry-ransomware-used-in-widespread-attacks-all-over-the-world/78351/",
+          "description": "Kaspersky Lab WannaCry Analysis"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "created": "2017-03-14T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "CVE-2017-0144 (EternalBlue)",
+      "description": "The SMBv1 server in Microsoft Windows Vista SP2, Windows Server 2008 SP2 and R2 SP1, Windows 7 SP1, Windows 8.1, Windows Server 2012 Gold and R2, Windows RT 8.1, and Windows Server 2016 allows remote attackers to execute arbitrary code via crafted packets, also known as 'Windows SMB Remote Code Execution Vulnerability'. The vulnerability was exploited by the EternalBlue exploit developed by the NSA and leaked by Shadow Brokers. CVSS v3 Score: 8.1 (High). Patch available: MS17-010.",
+      "labels": ["cve", "smb", "rce", "windows", "critical"],
+      "external_references": [
+        {
+          "source_name": "cve",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-0144",
+          "external_id": "CVE-2017-0144"
+        },
+        {
+          "source_name": "microsoft",
+          "url": "https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010",
+          "description": "MS17-010 Security Update"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e8c9f1a2-b3d4-5e6f-7890-abcdef123456",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "WannaCry File Hash Indicator",
+      "description": "MD5 hash of the primary WannaCry ransomware executable. Presence of this file hash indicates WannaCry infection.",
+      "pattern": "[file:hashes.MD5 = 'db349b97c37d22f5ea1d1841e3c89eb4']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2017-05-12T00:00:00.000Z",
+      "valid_until": "2027-05-12T00:00:00.000Z",
+      "indicator_types": ["malicious-activity", "compromised"],
+      "labels": ["file-hash", "md5", "wannacry", "ransomware"],
+      "kill_chain_phases": [
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "installation" }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f9d0e2b3-c4a5-6f7e-8901-bcdef2345678",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "WannaCry Kill Switch Domain Indicator",
+      "description": "The kill switch domain queried by WannaCry before executing the encryption payload. If this domain was reachable and registered (as happened on May 12, 2017), WannaCry would stop its propagation. Monitoring DNS requests for this domain indicates a WannaCry infection attempt.",
+      "pattern": "[domain-name:value = 'iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2017-05-12T00:00:00.000Z",
+      "valid_until": "2027-05-12T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "labels": ["domain", "kill-switch", "wannacry", "dns-query"]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a1b2c3d4-e5f6-7890-bcde-f12345678901",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "WannaCry Registry Key Indicator",
+      "description": "Registry key created by WannaCry malware on infected systems for persistence and tracking purposes.",
+      "pattern": "[windows-registry-key:key = 'HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\WannaCrypt']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2017-05-12T00:00:00.000Z",
+      "valid_until": "2027-05-12T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "labels": ["registry", "persistence", "wannacry"]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--b1c2d3e4-f5a6-7890-abcd-123456789012",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "Exploit Public-Facing Application (T1190)",
+      "description": "WannaCry exploits CVE-2017-0144 (EternalBlue), a critical vulnerability in Microsoft Windows SMBv1 protocol. The exploit allows unauthenticated remote code execution by sending specially crafted packets to port 445. This technique was categorized by MITRE ATT&CK as T1190 — Exploit Public-Facing Application.",
+      "labels": ["exploitation", "smb", "rce", "eternalblue"],
+      "kill_chain_phases": [
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "exploitation" },
+        { "kill_chain_name": "mitre-attack", "phase_name": "initial-access" }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1190/",
+          "external_id": "T1190"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c2d3e4f5-a6b7-8901-bcde-234567890123",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "Data Encrypted for Impact (T1486)",
+      "description": "WannaCry encrypts files on victim systems using AES-128 encryption with RSA-2048 for key exchange, rendering files inaccessible. It appends the .WNCRY extension to encrypted files and drops a ransom note (@Please_Read_Me@.txt) demanding Bitcoin payment for decryption. This action is intended to cause maximum disruption.",
+      "labels": ["ransomware", "encryption", "impact"],
+      "kill_chain_phases": [
+        { "kill_chain_name": "lockheed-martin-cyber-kill-chain", "phase_name": "actions-on-objectives" },
+        { "kill_chain_name": "mitre-attack", "phase_name": "impact" }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1486/",
+          "external_id": "T1486"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--d3e4f5a6-b7c8-9012-cdef-345678901234",
+      "created": "2017-05-13T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "Apply MS17-010 Security Patch",
+      "description": "Apply Microsoft security update MS17-010 which patches CVE-2017-0144 (EternalBlue SMBv1 vulnerability). This patch eliminates the attack vector used by WannaCry. Additionally, organizations should disable SMBv1 protocol entirely if not needed, block inbound SMB traffic (port 445) at the network perimeter, and ensure regular patch management processes are in place.",
+      "labels": ["patch", "mitigation", "smb", "ms17-010"],
+      "external_references": [
+        {
+          "source_name": "microsoft",
+          "url": "https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010",
+          "external_id": "MS17-010"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "spec_version": "2.1",
+      "id": "course-of-action--e4f5a6b7-c8d9-0123-defa-456789012345",
+      "created": "2017-05-13T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "Network Segmentation and SMBv1 Disablement",
+      "description": "Implement network segmentation to prevent lateral movement. Disable SMBv1 protocol on all Windows hosts. Block TCP port 445 at network perimeter and between network segments where SMB sharing is not required. Deploy endpoint detection and response (EDR) solutions to detect and block EternalBlue exploit attempts and ransomware file encryption behaviors.",
+      "labels": ["network-segmentation", "smb-disable", "edr", "mitigation"]
+    },
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--a1234567-b890-cdef-1234-567890abcdef",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "name": "UK National Health Service (NHS)",
+      "description": "Primary victim organization severely impacted by the WannaCry ransomware attack in May 2017. Thousands of appointments and operations were cancelled. Patient records became inaccessible, creating a major healthcare crisis.",
+      "identity_class": "organization",
+      "sectors": ["healthcare"],
+      "labels": ["victim", "healthcare", "nhs", "uk"]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555501",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--d2916708-57b9-4a5d-b7f1-4c26d0b44d6e",
+      "target_ref": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "description": "Lazarus Group uses WannaCry ransomware as a primary weapon in their cyber operations targeting financial and critical infrastructure sectors."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555502",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "exploits",
+      "source_ref": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "target_ref": "vulnerability--a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "description": "WannaCry ransomware exploits CVE-2017-0144 (EternalBlue) to achieve initial access and lateral movement through the EternalBlue SMBv1 exploit."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555503",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e8c9f1a2-b3d4-5e6f-7890-abcdef123456",
+      "target_ref": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "description": "The MD5 file hash indicator indicates the presence of WannaCry ransomware on an infected system."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555504",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--f9d0e2b3-c4a5-6f7e-8901-bcdef2345678",
+      "target_ref": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "description": "DNS queries for the kill switch domain indicate an active WannaCry infection attempt on the querying host."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555505",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--d3e4f5a6-b7c8-9012-cdef-345678901234",
+      "target_ref": "vulnerability--a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "description": "Applying the MS17-010 patch directly mitigates CVE-2017-0144 (EternalBlue), removing the vulnerability that WannaCry depends on for initial access and propagation."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555506",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "target_ref": "attack-pattern--b1c2d3e4-f5a6-7890-abcd-123456789012",
+      "description": "WannaCry uses the Exploit Public-Facing Application technique (T1190) through EternalBlue to gain initial access on target systems."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555507",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "malware--fcd74532-a7b1-4e56-92c2-3d1f5abc6d7e",
+      "target_ref": "attack-pattern--c2d3e4f5-a6b7-8901-bcde-234567890123",
+      "description": "WannaCry uses the Data Encrypted for Impact technique (T1486) to encrypt victim files and demand ransoms."
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11111111-2222-3333-4444-555555555508",
+      "created": "2017-05-12T00:00:00.000Z",
+      "modified": "2024-01-01T00:00:00.000Z",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--d2916708-57b9-4a5d-b7f1-4c26d0b44d6e",
+      "target_ref": "identity--a1234567-b890-cdef-1234-567890abcdef",
+      "description": "Lazarus Group targeted the UK NHS and other healthcare organizations in the WannaCry ransomware campaign."
+    }
+  ]
+}
