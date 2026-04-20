@@ -38,6 +38,12 @@ I extracted threat intelligence from open sources, built a complete **STIX 2.1 J
 
 The bundle is fully compliant with STIX 2.1 and can be imported into tools like **MISP**, **OpenCTI**, or any STIX-compatible platform.
 
+## 📊 STIX Graph Visualization
+
+![WannaCry STIX 2.1 Graph](images/wannacry-stix-graph.png)
+
+The central node is the WannaCry malware object, connected to the Lazarus Group (threat-actor), EternalBlue vulnerability, multiple Indicators of Compromise, and mitigation actions.
+
 ## 🎯 Learning Outcomes
 - Practical application of **STIX 2.1** for structuring CTI.
 - Threat actor profiling and attribution.
